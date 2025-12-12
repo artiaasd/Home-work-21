@@ -35,6 +35,6 @@ test("should display and hide error message based on mocked API responses", asyn
     await expect(loan.oopsErrorMessage).not.toBeVisible();
 
     await loan.applyForLoan();
-    await loan.login("prihhan", "password");
+    await loan.login("abalaksin", "password");
     await loan.finishFlow();
 });
