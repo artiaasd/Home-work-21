@@ -6,7 +6,7 @@ let loan: LoanBasePage;
 test.beforeEach(async ({ page }) => {
     await page.route("**/api/loan-calc?amount=500&period=12", async (route) => {
         await route.fulfill({
-            json: { paymentAmountMonthly: "54.8" },
+            json: { paymentAmountMonthly: "56.8" },
         });
     });
 
@@ -18,7 +18,7 @@ test("should show mocked monthly payment amount", async ({ page }) => {
     const textContentElement = await loan.monthlyPayment.textContent();
     console.log(textContentElement);
     const monthlyValue = textContentElement?.replace("€", "").trim() ?? "";
-    expect(monthlyValue).toBe("54.8");
+    expect(monthlyValue).toBe("56.8");
 });
 
 test("should display and hide error message based on mocked API response", async ({ page }) => {
